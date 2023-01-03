@@ -1,4 +1,4 @@
-class Espace {
+/*class Espace {
     constructor(nb_lignes, nb_vais, pvs) {
       this.nb_lignes = nb_lignes;
       this.nb_vais = nb_vais;
@@ -31,3 +31,4 @@ class Espace {
   let espace = new Espace(20, 14, 0);
 
 espace.aff_tab();
+*/
