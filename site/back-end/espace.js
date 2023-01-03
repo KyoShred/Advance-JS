@@ -17,7 +17,11 @@ class Espace {
       return table;
     }
 
-    aff_tab(){
+    crea_ennemi() {
+      
+    }
+
+    aff_tab() {
       for (let i = 0; i < this.nb_lignes; i++){
         document.write(this.crea_grid()[i] + "<br>");
       }
