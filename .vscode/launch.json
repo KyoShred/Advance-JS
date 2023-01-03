@@ -13,4 +13,5 @@
         "request": "launch",
         "type": "extensionHost"
     }
+    ]
 }
