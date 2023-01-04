@@ -1,4 +1,4 @@
-.grille {
+.grid {
     display: flex;
     flex-wrap: wrap;
     border: 1px solid #000;
@@ -9,7 +9,10 @@
     background: url(ressources/background-black.png);
     animation: background-defile 5s linear infinite;
 }
-
+.player{
+    background: url(ressources/vaisseau.png) no-repeat center center;
+    background-size: contain;
+}
 @keyframes background-defile {
     from {
         background-position-y: 0px;
@@ -23,7 +26,7 @@ h3 {
     text-align: center;
     margin: 20px 0;
 }
-.grille div {
+.grid div {
     width: 25px;
     height: 25px;
 }
