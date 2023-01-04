@@ -1,4 +1,4 @@
-const grid = document.querySelector(".grille");
+const grid = document.querySelector(".grid");
 for (let i = 0; i < 240; i++) {
     const squares = document.createElement("div");
     grid.appendChild(squares);
@@ -14,7 +14,7 @@ var myGameArea = {
 
         // Generate the grid
         const grid = document.createElement("div");
-        grid.classList.add("grille");
+        grid.classList.add("cell");
         for (let i = 0; i < 240; i++) {
             const squares = document.createElement("div");
             grid.appendChild(squares);
