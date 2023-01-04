@@ -6,16 +6,28 @@
     height: 500px;
     margin: 0 auto;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    background: url(../ressources/background-black.jpg);
-    animation: background-defile 5s linear infinite;
+    background: url(ressources/background-black.png);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.vaisseau {
+    background-image: url(../ressources/vaisseau.png);
 }
 
 .grid-cell {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    background-image: url(../ressources/background-black.jpg);
+    width: 25px;
+    height: 25px;
+    margin-bottom: -4px;
+}
+
+#grid-container{
+    /* background-image: url(../ressources/background-black.png); */
+    animation: background-defile 5s linear infinite;
 }
 
 @keyframes background-defile {
