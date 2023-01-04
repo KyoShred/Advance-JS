@@ -8,14 +8,16 @@ canvas{
     margin-right: auto;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     background-image: url(ressources-cours/ressources/ressources/background-black.png);
+    animation: background-defile 5s linear infinite;
+
 }
-.grille {
+.grid {
     display: grid;
     grid-template-columns: repeat(20, 20px);
     grid-template-rows: repeat(20, 20px);
 }
 
-.grille > div {
+.grid > div {
     background-color: #ddd;
     border: 1px solid #ccc;
 }
