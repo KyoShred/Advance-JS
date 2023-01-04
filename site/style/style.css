@@ -15,19 +15,28 @@
 }
 
 .vaisseau {
+    background-position: center;
+    transform: rotate(180deg);
+    background-size: contain;
     background-image: url(../ressources/vaisseau.png);
+}
+
+.alien {
+    background: url(../ressources/ennemis.png);
+    background-position: center;
+    background-size: contain;
 }
 
 .grid-cell {
     display: inline-block;
     width: 25px;
     height: 25px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     margin-bottom: -4px;
 }
 
 #grid-container{
-    /* background-image: url(../ressources/background-black.png); */
+    background-image: url(../ressources/background-black.png);
     animation: background-defile 5s linear infinite;
 }
 
@@ -49,17 +58,7 @@ h3 {
     width: 25px;
     height: 25px;
 }
-.tireur {
-    background: url(ressources/vaisseau.png);
-    transform: rotate(180deg);
-    background-position: center;
-    background-size: contain;
-}
-.alien {
-    background: url(ressources/ennemis.png);
-    background-position: center;
-    background-size: contain;
-}
+
 .boom {
     background-color: red;
 }
