@@ -2,7 +2,7 @@ const endScreen = document.querySelectorAll('.endScreen') || { innerHTML: '' };
 
 
 let alien = [230];
-
+ 
 let vaisseau = 230; 
 
 alien.forEach(lol => console.log(lol));{
