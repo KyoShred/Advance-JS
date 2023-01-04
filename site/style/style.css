@@ -18,11 +18,6 @@
     background-image: url(../ressources/background-black.jpg);
 }
 
-.no-margin{
-    margin: 0%;
-    padding: 0%;
-}
-
 @keyframes background-defile {
     from {
         background-position-y: 0px;
