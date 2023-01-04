@@ -1,11 +1,9 @@
-window.onload = startGame;
-var myGamePiece;
-
-function startGame(){
-    myGameArea.start();
-    myGamePiece = new Player(30, 30, "red", 195, 360);
-    
+const grid = document.querySelector(".grille");
+for (let i = 0; i < 240; i++) {
+    const squares = document.createElement("div");
+    grid.appendChild(squares);
 }
+
 var myGameArea = {
     container: document.createElement("div"),
     start: function() {
@@ -13,12 +11,20 @@ var myGameArea = {
         this.container.style.height = "390px";
         this.container.style.border = "1px solid black";
         document.body.insertBefore(this.container, document.body.childNodes[0]);
-        // other code
+
+        // Generate the grid
+        const grid = document.createElement("div");
+        grid.classList.add("grille");
+        for (let i = 0; i < 240; i++) {
+            const squares = document.createElement("div");
+            grid.appendChild(squares);
+        }
+        this.container.appendChild(grid);
     },
     clear: function() {
         // no need to clear the div element, just remove all child elements
         while (this.container.firstChild) {
-        this.container.removeChild(this.container.firstChild);
+            this.container.removeChild(this.container.firstChild);
         }
     }
 };
