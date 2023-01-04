@@ -15,6 +15,9 @@
 }
 
 .vaisseau {
+    background-position: center;
+    transform: rotate(180deg);
+    background-size: 25px;
     background-image: url(../ressources/vaisseau.png);
 }
 
@@ -22,12 +25,12 @@
     display: inline-block;
     width: 25px;
     height: 25px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     margin-bottom: -4px;
 }
 
 #grid-container{
-    /* background-image: url(../ressources/background-black.png); */
+    background-image: url(../ressources/background-black.png);
     animation: background-defile 5s linear infinite;
 }
 
