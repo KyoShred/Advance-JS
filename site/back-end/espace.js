@@ -1,4 +1,4 @@
-class Espace {
+/*class Espace {
     constructor(nb_lignes, nb_vais, pvs) {
       this.nb_lignes = nb_lignes;
       this.nb_vais = nb_vais;
@@ -39,3 +39,4 @@ class Espace {
 
 espace.crea_ennemi();
 espace.aff_tab();
+*/
