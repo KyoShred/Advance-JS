@@ -38,3 +38,5 @@ function crea_grid(){
 // de 5 a 17
 // de 26 a 38
 // de 41 a 53
+
+
