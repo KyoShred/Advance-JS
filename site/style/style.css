@@ -17,8 +17,14 @@
 .vaisseau {
     background-position: center;
     transform: rotate(180deg);
-    background-size: 25px;
+    background-size: contain;
     background-image: url(../ressources/vaisseau.png);
+}
+
+.alien {
+    background: url(../ressources/ennemis.png);
+    background-position: center;
+    background-size: contain;
 }
 
 .grid-cell {
@@ -52,17 +58,7 @@ h3 {
     width: 25px;
     height: 25px;
 }
-.tireur {
-    background: url(ressources/vaisseau.png);
-    transform: rotate(180deg);
-    background-position: center;
-    background-size: contain;
-}
-.alien {
-    background: url(ressources/ennemis.png);
-    background-position: center;
-    background-size: contain;
-}
+
 .boom {
     background-color: red;
 }
