@@ -12,5 +12,6 @@ function shooted() {
 }
 
 function bullet(){
-  bullet=
+  bullet=document.createElement(div);
+  
 }
