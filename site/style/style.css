@@ -41,7 +41,7 @@
 }
 
 #grid-container{
-    background-image: url(../ressources/background-black.png);
+    background-image: url(../ressources/background-black4.png);
     animation: background-defile 5s linear infinite;
 }
 
@@ -50,7 +50,7 @@
         background-position-y: 0px;
     }
     to {
-        background-position-y: 256px;
+        background-position-y: 450px;
     }
 }
 
