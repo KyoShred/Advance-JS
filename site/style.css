@@ -13,6 +13,7 @@
     background: url(ressources/vaisseau.png) no-repeat center center;
     background-size: contain;
 }
+
 @keyframes background-defile {
     from {
         background-position-y: 0px;
