@@ -40,13 +40,8 @@
     margin-bottom: -4px;
 }
 
-<<<<<<< HEAD
 #grid-container{
     background-image: url(../ressources/background-black4.png);
-=======
-.grid-container{
-    background-image: url(../ressources/background-black.png);
->>>>>>> main
     animation: background-defile 5s linear infinite;
 }
 
