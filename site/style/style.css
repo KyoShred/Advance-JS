@@ -14,7 +14,7 @@
     justify-content: center;
 }
 
-.player {
+.vaisseaux {
     background-position: center;
     transform: rotate(180deg);
     background-size: contain;
@@ -27,7 +27,7 @@
     background-size: contain;
 }
 
-.cell {
+.grid-cell {
     display: inline-block;
     width: 25px;
     height: 25px;
