@@ -1,6 +1,6 @@
 let game_over = false;
 let direction = 'gauche';
-
+let game_on = true
 var aliens = [25,26,27,28,29,30,31,32,33,34,35,36,37,
 46,47,48,49,50,51,52,53,54,55,56,57,58,
 67,68,69,70,71,72,73,74,75,76,77,78,79];
@@ -43,26 +43,25 @@ function crea_grid() {
 }
 
 // Mouvement des aliens -----------------------------------------------------------------------------------------------------------------------------
-
-function alien_movement() {
-  const aliens = document.querySelectorAll(".alien"); // Récupérer toutes les cellules avec la classe "alien"
-  aliens.forEach(aliens => {
-    if (aliens.classList.contains("start") & !aliens.classList.contains("end")) { // Si la cellule "alien" possède la classe "start"
-      direction = 'droite';
-    }
-    else if (aliens.classList.contains("end") & !aliens.classList.contains("start")) { // Si la cellule "alien" possède la classe "start"
-      direction = 'gauche';
-    }
-    if (direction == 'gauche') {
-      aliens.previousElementSibling.classList.add("alien");
-      aliens.classList.remove("alien");
-    }
-    else if (direction == 'droite') {
-      aliens.nextElementSibling.classList.add("alien");
-      aliens.classList.remove("alien");
-    }
-  });
-}
+  function alien_movement() {
+    const aliens = document.querySelectorAll(".alien"); // Récupérer toutes les cellules avec la classe "alien"
+    aliens.forEach(aliens => {
+      if (aliens.classList.contains("start") & !aliens.classList.contains("end")) { // Si la cellule "alien" possède la classe "start"
+        direction = 'droite';
+      }
+      else if (aliens.classList.contains("end") & !aliens.classList.contains("start")) { // Si la cellule "alien" possède la classe "start"
+        direction = 'gauche';
+      }
+      if (direction == 'gauche') {
+        aliens.previousElementSibling.classList.add("alien");
+        aliens.classList.remove("alien");
+      }
+      else if (direction == 'droite') {
+        aliens.nextElementSibling.classList.add("alien");
+        aliens.classList.remove("alien");
+      }
+    });
+  }
 
  // Mouvement du vaisseau ---------------------------------------------------------------------------------------------------------------------------
 
@@ -138,3 +137,7 @@ function bullet_shot() {
       compteur -= 1;
   }
 }
+
+aliens.forEach(element => {
+    alien_movement();
+});

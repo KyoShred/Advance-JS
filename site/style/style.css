@@ -19,7 +19,7 @@
     transform: translate(-50%, -50%);
   }
 
-.vaisseaux {
+.vaisseau {
     background-position: center;
     transform: rotate(180deg);
     background-size: contain;
