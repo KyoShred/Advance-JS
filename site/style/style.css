@@ -11,8 +11,13 @@
 
 .button {
     display: flex;
+    align-items: center;
     justify-content: center;
-}
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 .vaisseau {
     background-position: center;
@@ -52,11 +57,6 @@
 h3 {
     text-align: center;
     margin: 20px 0;
-}
-
-.grille div {
-    width: 25px;
-    height: 25px;
 }
 
 .boom {
