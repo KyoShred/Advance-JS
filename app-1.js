@@ -1,92 +1,78 @@
-const grid = document.querySelector(".grid");
-for (let i = 0; i < 240; i++) {
-    const squares = document.createElement("div");
-    grid.appendChild(squares);
+let cells = document.querySelectorAll('.grid .cell');
+let playerPosition;
+
+const grid = document.querySelector('.grid');
+
+for (let i = 0; i < 240 ; i++){
+    var squares = document.createElement('div')
+    grid.appendChild(squares)
+    squares.classList.add("cell")
 }
 
-var myGameArea = {
-    container: document.createElement("div"),
-    start: function() {
-        this.container.style.width = "390px";
-        this.container.style.height = "390px";
-        this.container.style.border = "1px solid black";
-        document.body.insertBefore(this.container, document.body.childNodes[0]);
+document.addEventListener('DOMContentLoaded', ()=>{
+    playerPosition = 229;
+    cells[playerPosition].classList.add('player');
+});
 
-        // Generate the grid
-        const grid = document.createElement("div");
-        grid.classList.add("cell");
-        for (let i = 0; i < 240; i++) {
-            const squares = document.createElement("div");
-            grid.appendChild(squares);
-        }
-        this.container.appendChild(grid);
-    },
-    clear: function() {
-        // no need to clear the div element, just remove all child elements
-        while (this.container.firstChild) {
-            this.container.removeChild(this.container.firstChild);
-        }
+document.addEventListener('keydown', function keyDownListener(e) {
+    if (e.key === 'ArrowRight') {
+        moveRight();
+    } else if (e.key === 'ArrowLeft') {
+        moveLeft();
     }
-};
-function Player(width, height, color, x, y) {
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;
-    this.x = x;
-    this.y = y;
-    this.color = color;
-    this.limit = false;
-    this.moving = false;  // new flag to track if the player is moving or not
-    this.update = function() {
-        // create a new div element
-        this.div = document.createElement("div");
-        this.div.style.width = this.width + "px";
-        this.div.style.height = this.height + "px";
-        this.div.style.backgroundColor = this.color;
-        this.div.style.position = "absolute";
-        this.div.style.left = this.x + "px";
-        this.div.style.top = this.y + "px";
-        // append the div element to the game container
-        myGameArea.container.appendChild(this.div);
-        };      
-        this.newPos = function() {
-        if (this.moving) return;  // return early if the player is already moving
-        // move the game piece in a square-by-square imitation
-        this.x += this.speedX;
-        this.y += this.speedY;
-        // add a margin around the edge of the game area
-        const margin = 30;
-        if (this.x < margin) {
-        this.x = margin;
-        } else if (this.x > myGameArea.canvas.width - this.width - margin) {
-        this.x = myGameArea.canvas.width - this.width - margin;
-        }
-        if (this.y < (myGameArea.canvas.height*70)/100) {
-        this.y = (myGameArea.canvas.height*70)/100;
-        } else if (this.y > myGameArea.canvas.height - this.height - margin) {
-        this.y = myGameArea.canvas.height - this.height - margin;
-        }
-        // set the moving flag to true
-        this.moving = true;
-        // after a short delay, set the moving flag to false
-        setTimeout(() => this.moving = false, 200);  // delay in milliseconds
+});
+
+function touchingRightEdge() {
+    return playerPosition % 20 === 19;
+}
+
+function moveRight() {
+    if (!touchingRightEdge()) {
+        cells[playerPosition].classList.remove('player');
+        playerPosition += 1; 
+        cells[playerPosition].classList.add('player');
     }
 }
-function updateGameArea() {
-    if (myGameArea.key && myGameArea.key === 'ArrowLeft') {
-        myGamePiece.div.style.left = myGamePiece.x + "px";
-    }
-    if (myGameArea.key && myGameArea.key === 'ArrowRight') {
-        myGamePiece.div.style.right = myGamePiece.x + "px";
 
-    }
-    if (myGameArea.key && myGameArea.key === 'ArrowUp') {
-        myGamePiece.div.style.top = myGamePiece.y + "px";
-    }
-    if (myGameArea.key && myGameArea.key === 'ArrowDown') {
-        myGamePiece.div.style.down = myGamePiece.y + "px";
-    }
-    myGamePiece.newPos(); 
-    myGamePiece.update();
+function touchingLeftEdge() {
+    return playerPosition % 20 === 0;
 }
+
+function moveLeft() {
+    if (!touchingLeftEdge()) {
+        cells[playerPosition].classList.remove('player');
+        playerPosition -= 1; 
+        cells[playerPosition].classList.add('player');
+    }
+}
+
+// Initialize the hostile character's position
+function initHostile() {
+    hostilePosition = Math.floor(Math.random() * 20);
+    cells[hostilePosition].classList.add('hostile');
+}
+
+// Move the hostile character down the grid
+function moveHostile() {
+  cells[hostilePosition].classList.remove('hostile');
+  hostilePosition += 20;
+  cells[hostilePosition].classList.add('hostile');
+}
+
+// Check if the hostile character has reached the bottom of the grid or if it has collided with the player
+function checkCollision() {
+  if (hostilePosition > 239 || hostilePosition === playerPosition) {
+    // End the game
+    clearInterval(hostileInterval);
+  }
+}
+
+// Initialize the hostile character and start moving it down the grid
+initHostile();
+const hostileInterval = setInterval(function() {
+  moveHostile();
+  checkCollision();
+}, 1000); // Move the hostile character every 1000 milliseconds
+
+initHostile();
+grid();
