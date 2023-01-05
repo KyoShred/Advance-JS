@@ -124,3 +124,21 @@ function move(e) {
     }
   }
 }
+
+function bullet_shot() {
+  let vaisseau = document.querySelector(".vaisseau");
+  let vaisseau_backup;
+  if (e.key === "Space") {
+    vaisseau_backup = vaisseau.previousElementSibling;
+      vaisseau_backup = vaisseau_backup.nextElementSibling;
+      for (let i = 0; i < 22 && vaisseau.previousElementSibling !== null; i++) {
+        vaisseau = vaisseau.nextElementSibling;
+      }
+      vaisseau.classList.add("vaisseau");
+      compteur -= 1;
+  }
+}
+
+const intervalId = setInterval(alien_movement, 650);
+// clearInterval(intervalId); // stop the interval
+i
