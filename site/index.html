@@ -9,16 +9,18 @@
 </head>
 
 <body>
-    <h3>Score :</h3>
+    <h3 id="score" class="Score">Score:</h3>
 
 
     <!-- Initialisation des ids grid-container et grid-cell pour les utiliser dans le CSS -->
     <div style="display: flex; justify-content: center">
 
-        <div class="endScreen"> </div> 
+       <div class="endScreen"> </div> 
+        <!--<div class="gameOver"></div>-->
         <div id="grid-container">
         </div>
-        <button onclick="crea_grid()" class="button">Start</button>
+        <button onclick="crea_grid()" class="button">Link Start</button>
+    </div>
         <!--<script src="app.js"></script>-->
         <script src="espace.js"></script>
         <script src="gameOver.js"></script>

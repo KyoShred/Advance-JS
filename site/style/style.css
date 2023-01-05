@@ -36,8 +36,8 @@
 }
 
 #grid-container{
-    background-image: url(../ressources/background-black3.png);
-    animation: background-defile 10s linear infinite;
+    background-image: url(../ressources/background-black4.png);
+    animation: background-defile 5s linear infinite;
 }
 
 @keyframes background-defile {
@@ -45,7 +45,7 @@
         background-position-y: 0px;
     }
     to {
-        background-position-y: 256px;
+        background-position-y: 450px;
     }
 }
 
@@ -66,7 +66,7 @@ h3 {
     background-color: orange;
 }
 
-.endScreen{
+/*.endScreen{
     position : absolute;
     width : 100%;
     height : 100%;
@@ -84,4 +84,4 @@ h3 {
     background-color: white;
     color: blueviolet;
     box-shadow: #000;
-}
+}*/
