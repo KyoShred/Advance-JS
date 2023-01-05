@@ -37,9 +37,9 @@ function bullet(){
   bull.style.top = `${bullY}%`
   }*/
 
-  document.addEventListener("keydown", function(event) {
+  /*document.addEventListener("keydown", function(event) {
     if (event.code === "Space") {
       console.log("shoot");
       shoot();
     }
-  });
+  });*/
