@@ -11,10 +11,15 @@
 
 .button {
     display: flex;
+    align-items: center;
     justify-content: center;
-}
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-.player {
+.vaisseau {
     background-position: center;
     transform: rotate(180deg);
     background-size: contain;
@@ -27,7 +32,7 @@
     background-size: contain;
 }
 
-.cell {
+.grid-cell {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -54,14 +59,9 @@ h3 {
     margin: 20px 0;
 }
 
-.grille div {
-    width: 25px;
-    height: 25px;
-}
-
 .boom {
     background-color: red;
 }
-.laser {
+.bullet {
     background-color: orange;
 }

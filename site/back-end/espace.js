@@ -15,6 +15,7 @@ function crea_grid() {
     var T = document.createElement('div');
     grid.appendChild(T);
     T.classList.add('cell');
+
     if (incr === 0) {
       T.classList.add('start');
     }
@@ -45,6 +46,35 @@ function crea_grid() {
   }
   var button = document.querySelector('button');
   button.parentNode.removeChild(button);
+
+  document.addEventListener('keydown', function(e) {
+    move(e);
+  });  
+  function touchingRightEdge() {
+    return playerPosition % 20 === 19;
+  }
+  function touchingLeftEdge() {
+    return playerPosition % 20 === 0;
+  }
+  function move(e){
+      
+      
+    if(e.key = 'ArrowRight'){
+      console.log("truc")
+      if (!touchingRightEdge()) {
+        cells[playerPosition].classList.remove('player');
+        playerPosition += 1;
+        cells[playerPosition].classList.add('player');
+      }
+    }
+    else if (e.key = 'ArrowLeft'){
+      if (!touchingLeftEdge()) {
+        cells[playerPosition].classList.remove('player');
+        playerPosition -= 1;
+        cells[playerPosition].classList.add('player');
+      }
+    }
+  }
   
 }
 document.addEventListener("keydown", function(event) {
