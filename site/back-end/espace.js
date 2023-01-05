@@ -1,10 +1,16 @@
-
 var ok = false;
+
+export let cells = document.querySelectorAll('.grid-container .cell');
+export let playerPosition = 409;
+
+const button = document.querySelector("button");
+button.addEventListener("click", crea_grid);
+
 function crea_grid() {
   const grid = document.querySelector('.grid-container');
   let incr = 0;
   let incrEntite = 0;
-  let playerPosition;
+  // let playerPosition;
   for (let i = 0; i < 441; i++) {
     var T = document.createElement('div');
     grid.appendChild(T);
@@ -16,8 +22,8 @@ function crea_grid() {
       T.classList.add('end');
     }
     if (incrEntite === 409){;
-      cells = document.querySelectorAll('.grid-container .cell')
-      playerPosition = 409;
+      // cells = document.querySelectorAll('.grid-container .cell')
+      // playerPosition = 409;
       T.classList.add('player');
     }
     if (incrEntite > 25 && incrEntite < 37) {
@@ -41,3 +47,32 @@ function crea_grid() {
   button.parentNode.removeChild(button);
   
 }
+document.addEventListener("keydown", function(event) {
+  let cells = document.querySelectorAll('.grid-container .cell'); 
+  let incrEntite = 0;
+  if (event.code === "Space") {
+    console.log("shoot");
+    let cellNumber = 0
+    cells.forEach( (cell) => {
+
+      if (cellNumber == playerPosition - 21 ) {
+        cell.classList.add("laser");
+      }
+      
+      cellNumber++;
+      console.log(cellNumber);
+    });
+
+    /*
+    if (incrEntite === 389){;
+      // cells = document.querySelectorAll('.grid-container .cell')
+      cells
+
+
+      playerPosition = 389;
+      T.classList.add('lazer');
+    }
+    incrEntite += 1;
+    */
+  }
+});
