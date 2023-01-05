@@ -35,6 +35,13 @@ function crea_grid(){
   button.parentNode.removeChild(button); // Permettent de retirer le bouton une fois cliqué
 }
 
+document.addEventListener("keydown", function(event) {
+  if (event.code === "Space") {
+    console.log("shoot");
+    shoot();
+  }
+});
+
 // de 5 a 17
 // de 26 a 38
 // de 41 a 53
