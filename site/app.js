@@ -45,21 +45,27 @@ function crea_grid() {
 // Mouvement des aliens -----------------------------------------------------------------------------------------------------------------------------
 
 function alien_movement() {
+  let alien_backup;
   const aliens = document.querySelectorAll(".alien"); // Récupérer toutes les cellules avec la classe "alien"
-  aliens.forEach(aliens => {
-    if (aliens.classList.contains("start") & !aliens.classList.contains("end")) { // Si la cellule "alien" possède la classe "start"
+  aliens.forEach(alien => {
+    if (alien.classList.contains("start")) { // Si la cellule "alien" possède la classe "start"
       direction = 'droite';
     }
-    else if (aliens.classList.contains("end") & !aliens.classList.contains("start")) { // Si la cellule "alien" possède la classe "start"
+    else if (alien.classList.contains("end")) { // Si la cellule "alien" possède la classe "end"
       direction = 'gauche';
     }
     if (direction == 'gauche') {
-      aliens.previousElementSibling.classList.add("alien");
-      aliens.classList.remove("alien");
+      alien.previousElementSibling.classList.add("alien");
+      alien.classList.remove("alien");
     }
-    else if (direction == 'droite') {
-      aliens.nextElementSibling.classList.add("alien");
-      aliens.classList.remove("alien");
+    else if (direction == "droite") {
+      alien.nextElementSibling.classList.add("alien");
+      const numAliens = aliens.length;
+      alien_backup = alien.nextElementSibling
+      for (let i = 0; i < numAliens; i++) {
+        alien_backup = alien_backup.nextElementSibling;
+        alien_backup.classList.remove("alien");
+      }
     }
   });
 }
@@ -122,19 +128,5 @@ function move(e) {
       vaisseau_backup.classList.remove("vaisseau");
       compteur -= 1;
     }
-  }
-}
-
-function bullet_shot() {
-  let vaisseau = document.querySelector(".vaisseau");
-  let vaisseau_backup;
-  if (e.key === "Space") {
-    vaisseau_backup = vaisseau.previousElementSibling;
-      vaisseau_backup = vaisseau_backup.nextElementSibling;
-      for (let i = 0; i < 22 && vaisseau.previousElementSibling !== null; i++) {
-        vaisseau = vaisseau.nextElementSibling;
-      }
-      vaisseau.classList.add("vaisseau");
-      compteur -= 1;
   }
 }

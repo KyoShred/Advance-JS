@@ -63,5 +63,7 @@ h3 {
     background-color: red;
 }
 .bullet {
-    background-color: orange;
+    background: url(../ressources/bullet.png);
+    background-position: center;
+    background-size: contain;
 }
