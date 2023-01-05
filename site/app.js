@@ -42,6 +42,8 @@ function crea_grid() {
   button.parentNode.removeChild(button); // Permettent de retirer le bouton une fois cliqué
 }
 
+// Mouvement des aliens -----------------------------------------------------------------------------------------------------------------------------
+
 function alien_movement() {
   const aliens = document.querySelectorAll(".alien"); // Récupérer toutes les cellules avec la classe "alien"
   aliens.forEach(aliens => {
@@ -62,6 +64,7 @@ function alien_movement() {
   });
 }
 
+ // Mouvement du vaisseau ---------------------------------------------------------------------------------------------------------------------------
 
 document.addEventListener('keydown', move);
 let compteur = 0;
@@ -123,6 +126,8 @@ function move(e) {
 }
 
 function bullet_shot() {
+  let vaisseau = document.querySelector(".vaisseau");
+  let vaisseau_backup;
   if (e.key === "Space") {
     vaisseau_backup = vaisseau.previousElementSibling;
       vaisseau_backup = vaisseau_backup.nextElementSibling;
@@ -130,7 +135,6 @@ function bullet_shot() {
         vaisseau = vaisseau.nextElementSibling;
       }
       vaisseau.classList.add("vaisseau");
-      vaisseau_backup.classList.remove("vaisseau");
       compteur -= 1;
   }
 }
