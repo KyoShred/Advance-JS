@@ -14,7 +14,7 @@
     justify-content: center;
 }
 
-.vaisseau {
+.player {
     background-position: center;
     transform: rotate(180deg);
     background-size: contain;
@@ -27,7 +27,7 @@
     background-size: contain;
 }
 
-.grid-cell {
+.cell {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -35,7 +35,7 @@
     margin-bottom: -4px;
 }
 
-#grid-container{
+.grid-container{
     background-image: url(../ressources/background-black.png);
     animation: background-defile 5s linear infinite;
 }
