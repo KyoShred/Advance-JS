@@ -92,11 +92,9 @@ document.addEventListener('keydown', function keyDownListener(e) {
     }
     
 });
-
 function touchingRightEdge() {
     return playerPosition % 20 === 19;
 }
-
 function moveRight() {
     if (!touchingRightEdge()) {
         cells[playerPosition].classList.remove('player');
@@ -104,11 +102,9 @@ function moveRight() {
         cells[playerPosition].classList.add('player');
     }
 }
-
 function touchingLeftEdge() {
     return playerPosition % 20 === 0;
 }
-
 function moveLeft() {
     if (!touchingLeftEdge()) {
         cells[playerPosition].classList.remove('player');
@@ -116,7 +112,6 @@ function moveLeft() {
         cells[playerPosition].classList.add('player');
     }
 }
-
 function moveUp() {
     if (limitV < 2) {
         cells[playerPosition].classList.remove('player');
@@ -137,33 +132,42 @@ function moveDown() {
         return;
     }
 }
-// // Initialize the hostile character's position
-// function initHostile() {
-//     hostilePosition = Math.floor(Math.random() * 20);
-//     cells[hostilePosition].classList.add('hostile');
-// }
-
-// // Move the hostile character down the grid
-// function moveHostile() {
-//   cells[hostilePosition].classList.remove('hostile');
-//   hostilePosition += 20;
-//   cells[hostilePosition].classList.add('hostile');
-// }
-
-// // Check if the hostile character has reached the bottom of the grid or if it has collided with the player
-// function checkCollision() {
-//   if (hostilePosition > 239 || hostilePosition === playerPosition) {
-//     // End the game
-//     clearInterval(hostileInterval);
-//   }
-// }
-
-// // Initialize the hostile character and start moving it down the grid
-// initHostile();
-// const hostileInterval = setInterval(function() {
-//   moveHostile();
-//   checkCollision();
-// }, 1000); // Move the hostile character every 1000 milliseconds
-
-// initHostile();
-// grid();
+function addScore(value) {
+    score += value;
+    scoreDisplay.innerHTML = "Score: " + score;
+  }
+  
+  let score;
+  const scoreDisplay = document.querySelector(".score")
+  
+  
+  let vaisseau = 230; 
+  
+  aliens.forEach(lol => {
+      if (lol > 219){
+        console.log('gameOver');
+        document.getElementById('score').innerHTML = 'GAME OVER';
+        location.reload();
+        
+      }
+      else if (lol == vaisseau)
+      {
+          console.log('gameOver');
+          let text = document.querySelector("h3");
+          Text.innerHTML = "Game Over";  
+          location.reload();
+          }
+        })
+        
+        
+        /*const button = document.getElementById('restart-button');
+        button.addEventListener('click', function() {
+          if (confirm('Voulez-vous vraiment recommencer la partie ?')) {
+            location.reload();
+          }
+        });
+  */
+  function playSound() {
+    var audio = new Audio("ressources/surprise.mp3");
+    audio.play();
+  }
