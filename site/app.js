@@ -138,6 +138,4 @@ function bullet_shot() {
   }
 }
 
-const intervalId = setInterval(alien_movement, 650);
-// clearInterval(intervalId); // stop the interval
-i
+const intervalId = setInterval(alien_movement, 1000);
