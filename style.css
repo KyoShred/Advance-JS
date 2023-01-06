@@ -1,10 +1,10 @@
-body{
+/* body{
     background: url(site/ressources/background-black.png);
     animation: background-defile 5s linear infinite;
     backdrop-filter: blur(20px);
     padding: 0;
     margin: 0;
-}
+} */
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -49,6 +49,6 @@ h3 {
 .boom {
     background-color: red;
 }
-.laser {
-    background-color: orange;
+.bullet {
+    background-image: url(site/ressources/bullet.png);
 }
