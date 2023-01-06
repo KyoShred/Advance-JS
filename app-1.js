@@ -138,7 +138,7 @@ function moveDown() {
     }
 }
 
-// tir du vaisseau---------------------------------------------------------------
+// tir du playerPosition---------------------------------------------------------------
 
 let bulletList = [0];
 document.addEventListener('keydown', bullet_shot);
@@ -154,43 +154,28 @@ if (compteur === 2){
 }
 
 function bullet_shot(e) {
-  if (e.key === " " && !bulletList.includes(positionV-20)) {
-    bulletList.shift();
-    bulletList.push(positionV-20);
-    const divList = document.querySelectorAll("div");
-
-      console.log(bulletList);
-      let i = 0;
-      divList.forEach((div) => {
-        if (div.classList.contains("bullet")){
-            div.classList.remove("bullet");
-        }
-        
-        if (bulletList.includes(i)){
-          div.classList.add("bullet");
-        }
+    if (e.key === " " && !bulletList.includes(positionV-20)) {
+        bulletList.shift();
+        bulletList.push(positionV-20);
+        const divList = document.querySelectorAll("div");
+        console.log(bulletList);
+        let i = 0;
+        divList.forEach((div) => {
+            if (bulletList.includes(i)){
+                div.classList.add("bullet");
+            }
         i++;
-    });
-  }
+        });
+    }
 }
 
 function mooveBullet() {
   
   const divList = document.querySelectorAll("div");
   const bullList = document.querySelectorAll("bull");
-  /*divList.forEach((div) => {
-    if (div.classList.contains("bullet")){
-      div.classList.remove("bullet");
-    }
-    
-    if (bulletList.includes(i)){
-      setInterval(mooveBullet,1000);
-      positionV -=21;
-      div.classList.add("bullet");
-    }*/
+  
     for(i=0;i<divList.length;i++) 
     {
-      //console.log(divList.length);
       
       if (divList[i].classList.contains("bullet")){
           console.log("moove");
@@ -201,7 +186,7 @@ function mooveBullet() {
     };
 
 }
-const intervalBullet = setInterval(mooveBullet, 500);
+const intervalBullet = setInterval(mooveBullet, 40);
 
 
 //score and game over
@@ -212,10 +197,6 @@ function addScore(value) {
   
   let score;
   const scoreDisplay = document.querySelector(".score")
-  
-  
-  let vaisseau = 230; 
-  
   alien.forEach(lol => {
       if (lol > 219){
         console.log('gameOver');
@@ -223,7 +204,7 @@ function addScore(value) {
         //location.reload();
         
       }
-      else if (lol == vaisseau)
+      else if (lol == playerPosition)
       {
           console.log('gameOver');
           let text = document.querySelector("h3");
@@ -233,14 +214,14 @@ function addScore(value) {
         })
         
         
-        /*const button = document.getElementById('restart-button');
+        const button = document.getElementById('restart-button');
         button.addEventListener('click', function() {
           if (confirm('Voulez-vous vraiment recommencer la partie ?')) {
             location.reload();
           }
         });
-  */
+  
   function playSound() {
-    var audio = new Audio("ressources/surprise.mp3");
+    var audio = new Audio("site/ressources/surprise.mp3");
     audio.play();
   }
