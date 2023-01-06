@@ -42,8 +42,6 @@
 
 #grid-container{
     background-image: url(../ressources/background-black.png);
-#grid-container{
-    background-image: url(../ressources/background-black4.png);
     animation: background-defile 5s linear infinite;
 }
 
@@ -65,7 +63,5 @@ h3 {
     background-color: red;
 }
 .bullet {
-    background: url(../ressources/bullet.png);
-    background-position: center;
-    background-size: contain;
+    background-color: orange;
 }
