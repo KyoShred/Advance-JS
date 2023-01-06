@@ -12,7 +12,10 @@
 .player{
     background: url(ressources/vaisseau.png) no-repeat center center;
     background-size: contain;
+    transform: rotate(180deg);
+    background-position: center;
 }
+
 @keyframes background-defile {
     from {
         background-position-y: 0px;
@@ -30,14 +33,9 @@ h3 {
     width: 25px;
     height: 25px;
 }
-.tireur {
-    background: url(ressources/vaisseau.png);
-    transform: rotate(180deg);
-    background-position: center;
-    background-size: contain;
-}
-.hostile {
-    background: url(ressources/ennemies.png);
+
+.alien {
+    background: url(ressources/ennemis.png);
     background-position: center;
     background-size: contain;
 }
