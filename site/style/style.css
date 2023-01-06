@@ -9,6 +9,10 @@
     background: url(ressources/background-black.png);
 }
 
+
+
+
+ 
 .button {
     display: flex;
     align-items: center;
@@ -50,7 +54,7 @@
         background-position-y: 0px;
     }
     to {
-        background-position-y: 256px;
+        background-position-y: 450px;
     }
 }
 

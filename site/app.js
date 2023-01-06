@@ -208,3 +208,45 @@ bulletList.forEach((positionB) => {
 const intervalBullet = setInterval(mooveBullet, 500);
 const intervalId = setInterval(alien_movement, 650);
 // clearInterval(intervalId); // stop the interval
+
+function addScore(value) {
+  score += value;
+  scoreDisplay.innerHTML = "Score: " + score;
+}
+
+let score;
+const scoreDisplay = document.querySelector(".score")
+
+
+let vaisseau = 230; 
+
+aliens.forEach(lol => {
+    if (lol > 219){
+      console.log('gameOver');
+      document.getElementById('score').innerHTML = 'GAME OVER';
+      location.reload();
+      
+    }
+    else if (lol == vaisseau)
+    {
+        console.log('gameOver');
+        let text = document.querySelector("h3");
+        Text.innerHTML = "Game Over";  
+        location.reload();
+        }
+      })
+      
+      
+      /*const button = document.getElementById('restart-button');
+      button.addEventListener('click', function() {
+        if (confirm('Voulez-vous vraiment recommencer la partie ?')) {
+          location.reload();
+        }
+      });
+*/
+function playSound() {
+  var audio = new Audio("ressources/surprise.mp3");
+  audio.play();
+}
+      
+     
