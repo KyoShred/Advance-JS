@@ -108,7 +108,7 @@ function move(e) {
       vaisseau_backup.classList.remove("vaisseau");
       compteur += 1;
       positionV-=21;
-    }
+    } 
   }
 
   if (e.key === "ArrowDown") {
