@@ -41,7 +41,7 @@
 }
 
 #grid-container{
-    background-image: url(../ressources/background-black4.png);
+    background-image: url(../ressources/background-black.png);
     animation: background-defile 5s linear infinite;
 }
 
