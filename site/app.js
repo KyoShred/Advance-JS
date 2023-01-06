@@ -199,6 +199,7 @@ aliens.forEach(lol => {
     if (lol > 219){
       console.log('gameOver');
       document.getElementById('score').innerHTML = 'GAME OVER';
+      location.reload();
       
     }
     else if (lol == vaisseau)
@@ -206,6 +207,21 @@ aliens.forEach(lol => {
         console.log('gameOver');
         let text = document.querySelector("h3");
         Text.innerHTML = "Game Over";  
+        location.reload();
         }
       })
-
+      
+      
+      /*const button = document.getElementById('restart-button');
+      button.addEventListener('click', function() {
+        if (confirm('Voulez-vous vraiment recommencer la partie ?')) {
+          location.reload();
+        }
+      });
+*/
+function playSound() {
+  var audio = new Audio("ressources/surprise.mp3");
+  audio.play();
+}
+      
+     
