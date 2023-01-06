@@ -59,7 +59,7 @@ function alien_movement() {
     }
     else if (direction == 'droite') {
       aliens.nextElementSibling.classList.add("alien");
-      //aliens.classList.remove("alien");
+      aliens.classList.remove("alien");
     }
   });
 }
@@ -79,6 +79,7 @@ function move(e) {
     else {
       vaisseau.nextElementSibling.classList.add("vaisseau");
       vaisseau.classList.remove("vaisseau");
+      positionV++;
     }
   }
 
@@ -89,6 +90,7 @@ function move(e) {
     else {
       vaisseau.previousElementSibling.classList.add("vaisseau");
       vaisseau.classList.remove("vaisseau");
+      positionV--;
     }
   }
 
@@ -105,6 +107,7 @@ function move(e) {
       vaisseau.classList.add("vaisseau");
       vaisseau_backup.classList.remove("vaisseau");
       compteur += 1;
+      positionV-=20;
     }
   }
 
@@ -121,55 +124,62 @@ function move(e) {
       vaisseau.classList.add("vaisseau");
       vaisseau_backup.classList.remove("vaisseau");
       compteur -= 1;
+      positionV+=20;
     }
   }
 }
+// tir du vaisseau---------------------------------------------------------------
 
-function bullet_shot() {
-  let vaisseau = document.querySelector(".vaisseau");
-  let vaisseau_backup;
-  if (e.key === "Space") {
-    vaisseau_backup = vaisseau.previousElementSibling;
-      vaisseau_backup = vaisseau_backup.nextElementSibling;
-      for (let i = 0; i < 22 && vaisseau.previousElementSibling !== null; i++) {
-        vaisseau = vaisseau.nextElementSibling;
-      }
-      vaisseau.classList.add("vaisseau");
-      compteur -= 1;
-  }
-}
+let positionV = 409;
+let bulletList = [];
+document.addEventListener('keydown', bullet_shot);
 
-// gameOver ! ----------------------------------------------------------------------------
-
-
-let score = document.getElementById('score');
-const scoreDisplay = document.querySelector(".score")
-
-
-function addScore(value) {
-  score += value;
-  scoreDisplay.innerHTML = "Score: " + score;
-}
-
-
-//alert('gameOver')
-
-
-
-
-let vaisseau = 230; 
-
-aliens.forEach(lol => {
-    if (lol > 219){
-      console.log('gameOver');
-      console.log(score)
-      score.innerHTML = 'GAME OVER';
-      
-    }
-    else if (lol == vaisseau)
-    {
-        console.log('gameOver');
-        let text = document.querySelector("h3");
-        Text.innerHTML = "Game Over";  
+function bullet_shot(e) {
+  console.log(e.key);
+  if (e.key === " " && !bulletList.includes(positionV-20)) {
+    bulletList.push(positionV-20);
+    const divList = document.querySelectorAll("div");
+    /*for (let i = 0; i < 441; i++){
+        if (bulletList.includes(i)){
+          divList[i].classList.add("bullet")
         }
-      })
+      }*/
+      console.log(bulletList);
+      let i = 0;
+      divList.forEach((div) => {
+        if (div.classList.contains("bullet")){
+            div.classList.remove("bullet");
+        }
+        
+        if (bulletList.includes(i)){
+          div.classList.add("bullet");
+        }
+        i++;
+    });
+  }
+}
+
+function mooveBullet() {
+  let i = 0;
+  /*const divList = document.querySelectorAll("div");
+      divList.forEach((div) => {
+        if (div.classList.contains("bullet")){
+            div.classList.remove("bullet");
+        }
+        
+        if (bulletList.includes(i)){
+          div.classList.add("bullet");
+        }
+        i++;
+    });*/
+bulletList.forEach((positionB) => {
+  console.log(positionB);
+  positionB -= 20;
+  console.log(positionB);
+});
+
+}
+
+const intervalBullet = setInterval(mooveBullet, 200);
+const intervalId = setInterval(alien_movement, 650);
+// clearInterval(intervalId); // stop the interval
