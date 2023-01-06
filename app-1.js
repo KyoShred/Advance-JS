@@ -74,7 +74,7 @@ setInterval(move_alien, 650);
 //move player
 let playerPosition;
 let compteur = 0;
-let positionV = 409;
+let positionV = 229;
 
 document.addEventListener('DOMContentLoaded', ()=>{
     playerPosition = 229;
@@ -140,7 +140,7 @@ function moveDown() {
 
 // tir du vaisseau---------------------------------------------------------------
 
-let bulletList = [];
+let bulletList = [0];
 document.addEventListener('keydown', bullet_shot);
 
 if (compteur === 0){
@@ -155,15 +155,10 @@ if (compteur === 2){
 
 function bullet_shot(e) {
   if (e.key === " " && !bulletList.includes(positionV-20)) {
+    bulletList.shift();
     bulletList.push(positionV-20);
     const divList = document.querySelectorAll("div");
 
-    
-    /*for (let i = 0; i < 441; i++){
-        if (bulletList.includes(i)){
-          divList[i].classList.add("bullet")
-        }
-      }*/
       console.log(bulletList);
       let i = 0;
       divList.forEach((div) => {
@@ -200,19 +195,13 @@ function mooveBullet() {
       if (divList[i].classList.contains("bullet")){
           console.log("moove");
           divList[i].classList.remove("bullet");
-          nouvellePosition=i-21; 
+          nouvellePosition=i-20; 
           divList[nouvellePosition].classList.add("bullet");
-          }
+      }
     };
-    /*let positionB = 
-bulletList.forEach((positionB) => {
-  console.log(positionB);
-  positionB -= 20;
-  console.log(positionB);
-});*/
+
 }
 const intervalBullet = setInterval(mooveBullet, 500);
-// clearInterval(intervalId); // stop the interval
 
 
 //score and game over
