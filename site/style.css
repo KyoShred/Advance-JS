@@ -30,19 +30,8 @@
     background: url(ressources/ennemis.png);
     background-position: center;
     background-size: contain;
-}
-
-.grid-cell {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    /* border: 1px solid #000; */
-    margin-bottom: -4px;
-}
-
-#grid-container{
-    background-image: url(ressources/background-black.png);
-    animation: background-defile 5s linear infinite;
+    transform: rotate(180deg);
+    background-position: center;
 }
 
 @keyframes background-defile {
@@ -58,7 +47,16 @@ h3 {
     text-align: center;
     margin: 20px 0;
 }
+.grid div {
+    width: 25px;
+    height: 25px;
+}
 
+.alien {
+    background: url(ressources/ennemis.png);
+    background-position: center;
+    background-size: contain;
+}
 .boom {
     background-color: red;
 }
