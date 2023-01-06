@@ -1,5 +1,5 @@
 let game_over = false;
-let direction = 'gauche';
+let direction = 'droite';
 
 var aliens = [25,26,27,28,29,30,31,32,33,34,35,36,37,
 46,47,48,49,50,51,52,53,54,55,56,57,58,
@@ -47,21 +47,21 @@ function crea_grid() {
 function alien_movement() {
   let alien_backup;
   const aliens = document.querySelectorAll(".alien"); // Récupérer toutes les cellules avec la classe "alien"
-  aliens.forEach(alien => {
-    if (alien.classList.contains("start")) { // Si la cellule "alien" possède la classe "start"
+  aliens.forEach(element => {
+    if (element.classList.contains("start")) { // Si la cellule "alien" possède la classe "start"
       direction = 'droite';
     }
-    else if (alien.classList.contains("end")) { // Si la cellule "alien" possède la classe "end"
+    else if (element.classList.contains("end")) { // Si la cellule "alien" possède la classe "end"
       direction = 'gauche';
     }
     if (direction == 'gauche') {
-      alien.previousElementSibling.classList.add("alien");
-      alien.classList.remove("alien");
+      element.previousElementSibling.classList.add("alien");
+      element.classList.remove("alien");
     }
     else if (direction == "droite") {
-      alien.nextElementSibling.classList.add("alien");
+      element.nextElementSibling.classList.add("alien");
       const numAliens = aliens.length;
-      alien_backup = alien.nextElementSibling
+      alien_backup = element.nextElementSibling
       for (let i = 0; i < numAliens; i++) {
         alien_backup = alien_backup.nextElementSibling;
         alien_backup.classList.remove("alien");
@@ -70,7 +70,7 @@ function alien_movement() {
   });
 }
 
- // Mouvement du vaisseau ---------------------------------------------------------------------------------------------------------------------------
+// Mouvement du vaisseau ---------------------------------------------------------------------------------------------------------------------------
 
 document.addEventListener('keydown', move);
 let compteur = 0;
