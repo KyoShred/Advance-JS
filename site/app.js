@@ -107,7 +107,7 @@ function move(e) {
       vaisseau.classList.add("vaisseau");
       vaisseau_backup.classList.remove("vaisseau");
       compteur += 1;
-      positionV-=20;
+      positionV-=21;
     }
   }
 
@@ -134,11 +134,23 @@ let positionV = 409;
 let bulletList = [];
 document.addEventListener('keydown', bullet_shot);
 
+if (compteur === 0){
+  positionV +=1
+}
+if (compteur === 1){
+  positionV +=1
+}
+if (compteur === 2){
+  positionV -=1
+}
+
 function bullet_shot(e) {
   console.log(e.key);
   if (e.key === " " && !bulletList.includes(positionV-20)) {
     bulletList.push(positionV-20);
     const divList = document.querySelectorAll("div");
+
+    
     /*for (let i = 0; i < 441; i++){
         if (bulletList.includes(i)){
           divList[i].classList.add("bullet")
@@ -160,26 +172,39 @@ function bullet_shot(e) {
 }
 
 function mooveBullet() {
-  let i = 0;
-  /*const divList = document.querySelectorAll("div");
-      divList.forEach((div) => {
-        if (div.classList.contains("bullet")){
-            div.classList.remove("bullet");
-        }
-        
-        if (bulletList.includes(i)){
-          div.classList.add("bullet");
-        }
-        i++;
-    });*/
+  
+  const divList = document.querySelectorAll("div");
+  const bullList = document.querySelectorAll("bull");
+  /*divList.forEach((div) => {
+    if (div.classList.contains("bullet")){
+      div.classList.remove("bullet");
+    }
+    
+    if (bulletList.includes(i)){
+      setInterval(mooveBullet,1000);
+      positionV -=21;
+      div.classList.add("bullet");
+    }*/
+    for(i=0;i<divList.length;i++) 
+    {
+      //console.log(divList.length);
+      
+      if (divList[i].classList.contains("bullet")){
+          console.log("moove");
+          divList[i].classList.remove("bullet");
+          nouvellePosition=i-21; 
+          divList[nouvellePosition].classList.add("bullet");
+          }
+    };
+    /*let positionB = 
 bulletList.forEach((positionB) => {
   console.log(positionB);
   positionB -= 20;
   console.log(positionB);
-});
+});*/
 
 }
 
-const intervalBullet = setInterval(mooveBullet, 200);
+const intervalBullet = setInterval(mooveBullet, 500);
 const intervalId = setInterval(alien_movement, 650);
 // clearInterval(intervalId); // stop the interval
